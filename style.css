@@ -4,11 +4,23 @@
 
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: bisque;
-    background-color: lightcyan;
+    color: midnightblue;
+    background-color: ghostwhite;
 }
 
-form {
+input, input[type=submit], input[type=reset] {
+    padding: 10px 20px;
+    color: ghostwhite;
+    background-color: midnightblue;
+    font-size: 15px;
+    margin: 30px 0px 0px;
+    width: 35%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+    
+    form {
     max-width: 400px;
     margin: 35px auto;
     border-radius: 10px;
@@ -36,11 +48,11 @@ input[type='email'],
 input[type='password'],
 textarea,
 select {
-    background: lightsteelblue;
+    background: ghostwhite;
     border: 1px;
     margin-bottom: 25px;
     box-shadow: 2px;
-    color: beige;
+    color: ghostwhite;
     background-color: rgb(142, 143, 223);
     width: 100%;
     padding: 15px;
@@ -48,6 +60,7 @@ select {
     height: auto;
     font-size: 15px;
 }
+
 
 select {
     padding: 6px;
@@ -61,8 +74,9 @@ fieldset {
 }
 
 legend {
-    display: block;
     margin-bottom: 8px;
+    margin: auto;
+    font-size: 18px;
 }
 
 label.light {
