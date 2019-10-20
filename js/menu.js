@@ -3,21 +3,21 @@ const form = document.querySelector('#add-cafe-pos')
 
 // create element renderMenu
 function renderMenu(doc){
-let li = document.createElement('li');
-let foodmenu = document.createElement('span');
-let fooddesc = document.createElement('span');
-let foodprice = document.createElement('span');
+let tr = document.createElement('tr');
+let foodmenu = document.createElement('td');
+let fooddesc = document.createElement('td');
+let foodprice = document.createElement('td');
 
-li.setAttribute('data-id', doc.id);
+tr.setAttribute('data-id', doc.id);
 foodmenu.textContent = doc.data().food_name;
 fooddesc.textContent = doc.data().food_desc;
 foodprice.textContent = doc.data().food_price;
 
-li.appendChild(foodmenu);
-li.appendChild(fooddesc);
-li.appendChild(foodprice);
+tr.appendChild(foodmenu);
+tr.appendChild(fooddesc);
+tr.appendChild(foodprice);
 
-cafemenulist.appendChild(li);
+cafemenulist.appendChild(tr);
 }
 
 db.collection('Menu').get().then((snapshot) => {
