@@ -9,9 +9,9 @@ let fooddesc = document.createElement('span');
 let foodprice = document.createElement('span');
 
 li.setAttribute('data-id', doc.id);
-foodmenu.textContent = doc.data().foodmenu;
-fooddesc.textContent = doc.data().fooddesc;
-foodprice.textContent = doc.data().foodprice;
+foodmenu.textContent = doc.data().food_name;
+fooddesc.textContent = doc.data().food_desc;
+foodprice.textContent = doc.data().food_price;
 
 li.appendChild(foodmenu);
 li.appendChild(fooddesc);
