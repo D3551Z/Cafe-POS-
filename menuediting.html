@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Cafe POS</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    
+    <!-- Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="framework/css/mdb.min.css" rel="stylesheet"> 
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <!-- Navbar brand -->
+  <a class="navbar-brand" href="#">Cafe POS</a>
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Orders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Table Status</a>
+      </li>
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+        <div class="dropdown-menu dropdown-menu dropdown-default">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <a class="nav-link">
+          <i class="fas fa-user"></i> Profile
+        </a>
+    
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--/.Navbar-->
+  
+ <!--    Main content    -->
+<h1>Cafe Pos</h1>
+
+<div class="content">
+
+  <form id = "add-cafe-pos">
+    <input type="text" name="menutitle" placeholder="Menu Title">
+    <input type="text" name="menudesc" placeholder="Menu Description">
+    <input type="text" name="menuprice" placeholder="Menu Price">
+    <button>Add Menu</button>
+  </form>
+
+  <ul id="cafe-menu-list"></ul>
+
+</div>
+ 
+    
+<!--SCRIPTS-->
+<!-- JQuery -->
+<script src="framework/js/jquery-3.4.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script src="framework/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="framework/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script src="framework/js/mdb.min.js"></script>
+<!-- Menu JavaScript -->    
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCyZvwuBhfvR4XUNHGccdb-kGiRwqsT37k",
+    authDomain: "cafe-pos-30bd9.firebaseapp.com",
+    databaseURL: "https://cafe-pos-30bd9.firebaseio.com",
+    projectId: "cafe-pos-30bd9",
+    storageBucket: "cafe-pos-30bd9.appspot.com",
+    messagingSenderId: "553867278387",
+    appId: "1:553867278387:web:e2b1b70109c686fb8fcb46",
+    measurementId: "G-7JD8TBC4YR"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const db = firebase.firestore();
+</script>
+
+<script src="js/menu.js"></script>
+<!--/SCRIPTS-->
+    
+</body>
+</html>
