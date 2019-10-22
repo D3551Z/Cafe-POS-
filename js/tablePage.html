@@ -17,45 +17,67 @@
 </head>
 
 <body>
+    <div id="tablepage">
+        <h1>Modify table status</h1>
+        <div id="divbutton">
+            <button type="button" id="btnAddForm" onclick="CloneForm('survey');">Add new table</button>
+        </div>
 
-    <h1>Modify table status</h1>
-    <div id="divbutton">
-        <button type="button" id="btnAddForm" onclick="CloneForm('survey');">Add new table</button>
+        <form class="survey">
+            <label for="survey" , class="tableIDe" id="table1">Table 1</label>
+            <select name="rank" class="rank" id="rank1">
+                <option value="unoccupied" selected="selected">Unoccupied</option>
+                <option value="reserved">Occupied</option>
+                <option value="reserved">Reserved</option>
+            </select>
+            <input name="customer_info" class="customer_info" id="cus1" type="text" placeholder="Customer info" />
+            <button type="button" id="button1">Change status</button>
+        </form>
+
+        <form class="survey">
+            <label for="survey" , class="tableIDe" id="table2">Table 2</label>
+            <select name="rank" class="rank" id="rank2">
+                <option value="unoccupied" selected="selected">Unoccupied</option>
+                <option value="reserved">Occupied</option>
+                <option value="reserved">Reserved</option>
+            </select>
+            <input name="customer_info" id="cus2" class="customer_info" type="text" placeholder="Customer info" />
+            <button type="button" id="button2">Change status</button>
+        </form>
+
+        <form class="survey">
+            <label for="survey" , class="tableIDe" id="table3">Table 3</label>
+            <select name="rank" class="rank" id="rank3">
+                <option value="unoccupied" selected="selected">Unoccupied</option>
+                <option value="reserved">Occupied</option>
+                <option value="reserved">Reserved</option>
+            </select>
+            <input name="customer_info" id="cus3" class="customer_info" type="text" placeholder="Customer info" />
+            <button type="button" id="button3">Change status</button>
+        </form>
+
+        <form class="survey">
+            <label for="survey" , class="tableIDe" id="table4">Table 4</label>
+            <select name="rank" class="rank" id="rank4">
+                <option value="unoccupied" selected="selected">Unoccupied</option>
+                <option value="reserved">Occupied</option>
+                <option value="reserved">Reserved</option>
+            </select>
+            <input name="customer_info" class="customer_info" id="cus4" type="text" placeholder="Customer info" />
+            <button type="button" id="button4">Change status</button>
+        </form>
+
+        <form class="survey">
+            <label for="survey" , class="tableIDe" id="table5">Table 5</label>
+            <select name="rank" class="rank" id="rank5">
+                <option value="unoccupied" selected="selected">Unoccupied</option>
+                <option value="reserved">Occupied</option>
+                <option value="reserved">Reserved</option>
+            </select>
+            <input name="customer_info" class="customer_info" id="cus5" type="text" placeholder="Customer info" />
+            <button type="button" id="button5">Change status</button>
+        </form>
     </div>
-
-    <form class="survey">
-        <label for="survey" , class="tableIDe" id="table1">Table 1</label>
-        <select name="rank" class="rank" id="rank1">
-            <option value="unoccupied" selected="selected">Unoccupied</option>
-            <option value="reserved">Occupied</option>
-            <option value="reserved">Reserved</option>
-        </select>
-        <input name="customer_info" class="customer_info" id="cus1" type="text" placeholder="Customer info" />
-        <button type="button" id="button1">Change status</button>
-    </form>
-
-    <form class="survey">
-        <label for="survey" , class="tableIDe" id="table2">Table 2</label>
-        <select name="rank" class="rank" id="rank2">
-            <option value="unoccupied" selected="selected">Unoccupied</option>
-            <option value="reserved">Occupied</option>
-            <option value="reserved">Reserved</option>
-        </select>
-        <input name="customer_info" id="cus2" class="customer_info" type="text" placeholder="Customer info" />
-        <button type="button" id="button2">Change status</button>
-    </form>
-
-    <form class="survey">
-        <label for="survey" , class="tableIDe"id="table3">Table 3</label>
-        <select name="rank" class="rank" id="rank3">
-            <option value="unoccupied" selected="selected">Unoccupied</option>
-            <option value="reserved">Occupied</option>
-            <option value="reserved">Reserved</option>
-        </select>
-        <input name="customer_info" id="cus3" class="customer_info" type="text" placeholder="Customer info" />
-        <button type="button" id="button3" >Change status</button>
-    </form>
-
 
 
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
