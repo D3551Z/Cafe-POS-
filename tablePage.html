@@ -12,7 +12,7 @@
     <!-- Material Design Bootstrap -->
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="joastyle.css" />
+    <link rel="stylesheet" href="css/tableandloginstyle.css" />
 
 </head>
 
@@ -21,9 +21,11 @@
         <h1>Modify table status</h1>
         <div id="divbutton">
             <button type="button" id="btnAddForm" onclick="CloneForm('survey');">Add new table</button>
+            <button type="button" id="btnDeleteForm" onclick="DeleteForm();">Delete table</button>
+
         </div>
 
-        <form class="survey">
+        <form class="survey" id="clone">
             <label for="survey" , class="tableIDe" id="table1">Table 1</label>
             <select name="rank" class="rank" id="rank1">
                 <option value="unoccupied" selected="selected">Unoccupied</option>
@@ -84,9 +86,10 @@
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-database.js"></script>
-    <script src="app2.js"></script>
-    <script src="index1.js"></script>
+    <script src="js/init.js"></script>
+    <!---  <script src="js/app2.js"></script> -->
+        <script src="js/tablejs.js"></script>
 
-</body>
+    </body>
 
-</html>
+    </html>
