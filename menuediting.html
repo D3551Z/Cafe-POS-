@@ -70,17 +70,46 @@
 </nav>
 <!--/.Navbar-->
   
- <!--    Main content    -->
+<!--    Main content    -->
 <h1>Cafe Pos</h1>
 
 <div class="content">
   <form id = "add-cafe-pos">
-    <input type="text" name="menutitle" placeholder="Menu Title">
-    <input type="text" name="menudesc" placeholder="Menu Description">
-    <input type="text" name="menuprice" placeholder="Menu Price">
+    <input type="text" onfocus="this.value=''" name="menutitle" placeholder="Menu Title">
+    <input type="text" onfocus="this.value=''" name="menudesc" placeholder="Menu Description">
+    <input type="text" onfocus="this.value=''" name="menuprice" placeholder="Menu Price">
     <button>Add Menu</button>
   </form>
+  <!--Edit Menu-->
+  <div id="editmodalform" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Edit Menu Details</h4>
+        <button type="button" class="close">
+            <span>&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        <form class="md-form" id="edit-cafe-pos">
+          Menu Title:<br>
+          <input type="text" name="menutitle" placeholder="enter title"><br>
+          Menu Description:<br>
+          <input type="text" name="menudesc" placeholder="enter description"><br>
+          Menu Price:<br>
+            <input type="text" name="menuprice" placeholder="enter price"><br>
+            <br>
+            <div class="modal-footer text-center">
+            <button class="btn btn-default center">Confirm edit</button>
+          </div>
+        </form>
+      </div>
 
+    </div>
+  </div>
+</div>
+
+ <!--/Edit Menu-->
   <table id="cafe-menu">
     <thead>
       <tr>
@@ -93,36 +122,7 @@
   </table>
 
 </div>
-
-<!-- Edit Staff Modal -->
-<!--<div id="myModal2" class="modal">-->
-  <!-- Modal content -->
-  <!--<div class="modal-content">
-  <div class="modal-header">
-      <h2>Edit Staff Details</h2>
-      <span class="close">&times;</span>
-  </div>
-  <div class="modal-body">
-          <form id="edit-staff-form">
-              Staff ID:<br>
-              <input type="text" name="ID" placeholder="Staff ID" required><br>
-              Name:<br>
-              <input type="text" name="Name" placeholder="Name" required><br>
-              Gender:<br>
-              <input type="text" name="Gender" placeholder="Gender" required><br>
-              Phone Number:<br>
-              <input type="number" name="PNum" placeholder="Phone Number" required><br>
-              Position:<br>
-              <input type="text" name="Pos" placeholder="Position" required><br>
-              Salary:<br>
-              <input type="number" name="Salary" placeholder="Salary" required><br><br>
-              <button>Submit</button>
-            </form>
-  </div>
-  </div>
-</div>-->
- 
-    
+   
 <!--SCRIPTS-->
 <!-- JQuery -->
 <script src="framework/js/jquery-3.4.1.min.js"></script>

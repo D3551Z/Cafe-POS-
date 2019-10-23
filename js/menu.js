@@ -1,5 +1,26 @@
 const cafemenulist = document.querySelector('#cafe-menu-list');
-const form = document.querySelector('#add-cafe-pos')
+const form = document.querySelector('#add-cafe-pos');
+var Modal_Edit=document.getElementById('editmodalform');
+var Edit_Form = document.querySelector('#edit-cafe-pos');
+var btnclose = document.getElementsByClassName('close');
+var selectedID;
+
+//get real time database, if changes made, refresh automatically
+db.collection('Menu').orderBy("food_price").onSnapshot(snapshot =>{
+    let changes=snapshot.docChanges();
+    changes.forEach(change=>{
+        if(change.type=='added'){
+            renderMenu(change.doc);
+        }else if (change.type=='removed'){
+            let tr = cafemenulist.querySelector('[data-id=' + change.doc.id +']');
+            cafemenulist.removeChild(tr);
+        }
+    })
+    //debugging purpose
+    console.log("changes made")
+            
+});
+
 
 // create element renderMenu
 function renderMenu(doc){
@@ -7,6 +28,12 @@ let tr = document.createElement('tr');
 let foodmenu = document.createElement('td');
 let fooddesc = document.createElement('td');
 let foodprice = document.createElement('td');
+var btnEdit = document.createElement('button');
+btnEdit.innerHTML="Edit";
+btnEdit.className="btn btn-default btn-rounded mb-4";
+var btnRemove = document.createElement('button');
+btnRemove.innerHTML="Delete";
+btnRemove.className="btn btn-default btn-rounded mb-4";
 
 tr.setAttribute('data-id', doc.id);
 foodmenu.textContent = doc.data().food_name;
@@ -16,83 +43,47 @@ foodprice.textContent = doc.data().food_price;
 tr.appendChild(foodmenu);
 tr.appendChild(fooddesc);
 tr.appendChild(foodprice);
+tr.appendChild(btnEdit);
+tr.appendChild(btnRemove);
 
 cafemenulist.appendChild(tr);
-}
 
-function renderTable(doc){
-    //debugging purpose
-    console.log("you just run me");
-    
-    
-    let tr = document.createElement('tr');
-    tr.className="text-center"
-    
-    let Staff_id = document.createElement('td');
-    let Staff_Name = document.createElement('td');
-    let Staff_Gender = document.createElement('td');
-    let Staff_PNumb = document.createElement('td');
-    let Staff_Pos = document.createElement('td');
-    let Staff_Sly = document.createElement('td');
-    
-    //creating button
-    
-    var btnEdit=document.createElement("BUTTON");
-    btnEdit.innerHTML="Edit";
-    btnEdit.className="btn btn-outline-info btn-xs";
-    
-    
-    
-    var btnDelete=document.createElement("BUTTON");
-    btnDelete.innerHTML="Delete"
-    btnDelete.className="btn btn-outline-danger btn-xs"
-    
-    
+btnEdit.addEventListener('click', (e) => {
+    e.stopPropagation();
+    let id = e.target.parentElement.getAttribute('data-id');
+    console.log("heres your id that you selected: "+ id);
+     selectedID=id;
+     //debugging purpose
+     console.log(selectedID);
+    Modal_Edit.style.display="block";
+    console.log("form has been summoned");
 
-    tr.setAttribute('data-id', doc.id);
-    Staff_id.textContent = doc.data().Staff_ID;
-    Staff_Name.textContent=doc.data().Staff_Name;
-    Staff_Gender.textContent=doc.data().Staff_Gender;
-    Staff_PNumb.textContent=doc.data().Staff_PNum;
-    Staff_Pos.textContent=doc.data().Staff_Position;
-    Staff_Sly.textContent=doc.data().Staff_Salary;
+    btnclose.onclick = function(event) {
+        if (event.target == Modal_Edit) {
+            Modal_Edit.style.display = "none";
+            console.log("ive close it");  
+        }
+     }
     
-    tr.appendChild(Staff_id);
-    tr.appendChild(Staff_Name);
-    tr.appendChild(Staff_Gender);
-    tr.appendChild(Staff_PNumb);
-    tr.appendChild(Staff_Pos);
-    tr.appendChild(Staff_Sly);
-    tr.appendChild(btnEdit);
-    tr.appendChild(btnDelete);
-
-    
-    StaffList.append(tr); 
-    
-     btnEdit.addEventListener('click', (e) => {
-        e.stopPropagation();
-        let id = e.target.parentElement.getAttribute('data-id');
-        console.log("heres your id that you selected: "+ id);
-         selectedID=id;
-         //debugging purpose
-         console.log(selectedID);
-         modal_Edit.style.display="block";
-    })
-    
- 
-
-    
-    btnDelete.addEventListener('click', (e) => {
-        e.stopPropagation();
-        let id = e.target.parentElement.getAttribute('data-id');
-        console.log("heres your id that you selected: "+ id);
-        db.collection('Staffs').doc(id).delete();
-           alert("You had sucessfully delete the item from system! Your table will now be updated!");
-    })
-    
+     window.onclick = function(event) {
+        if (event.target == Modal_Edit) {
+            Modal_Edit.style.display = "none";
+            console.log("ive nto close it");  
+        }
+      }
+})
 
 
-        
+
+
+btnRemove.addEventListener('click', (e) => {
+    e.stopPropagation();
+    let id = e.target.parentElement.getAttribute('data-id');
+    console.log("heres your id that you selected: "+ id);
+    db.collection('Menu').doc(id).delete();
+       alert("You had sucessfully delete the item from system! Your table will now be updated!");
+})
+
 }
 
 db.collection('Menu').get().then((snapshot) => {
@@ -111,3 +102,20 @@ form.addEventListener('submit',(e) =>{
         food_price: form.menuprice.value
     })
 })
+
+//edit data
+Edit_Form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    //debugging purpose
+    console.log("you edit the item!");
+    //store field values to a new empty string.
+    
+    db.collection('Menu').doc(selectedID).update({
+       
+        food_name: Edit_Form.menutitle.value,
+        food_desc: Edit_Form.menudesc.value,
+        food_price: Edit_Form.menuprice.value
+    })
+   
+});
+
