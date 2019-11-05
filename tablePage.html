@@ -3,93 +3,146 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0", shrink-to-fit=no/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Table Modifying Page</title>
-   
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script>
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="framework/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="css/tableandloginstyle.css" />
-
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <div id="tablepage">
-        <h1>Modify table status</h1>
-        <div id="divbutton">
-            <button type="button" id="btnAddForm" onclick="CloneForm('survey');">Add new table</button>
-            <button type="button" id="btnDeleteForm" onclick="DeleteForm();">Delete table</button>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#">Cafe POS</a>
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Table Status</a>
+                </li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                    <div class="dropdown-menu dropdown-menu dropdown-default">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+                <li class="nav-item">
+                    <a class="nav-link">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
 
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--/.Navbar-->
+    <h1>Cafe Pos</h1>
+    <div class="content">
+        <form id="add-cafe-pos">
+            <input type="text" onfocus="this.value=''" name="tablenumber" placeholder="Table ">
+            <input type="text" onfocus="this.value=''" name="tabledesc" placeholder="Table Description">
+            <input type="text" onfocus="this.value=''" name="tablestatus" placeholder="Table Status">
+            <button>Add Table</button>
+        </form>
+        <!--Edit Menu-->
+        <div id="editmodalform" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Edit Table Details</h4>
+                        <button type="button" class="close">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="md-form" id="edit-cafe-pos">
+                            Table ID:<br>
+                            <input type="text" name="tablenumber" placeholder="enter tablenumber"><br>
+                            Table Description:<br>
+                            <input type="text" name="tabledesc" placeholder="enter description"><br>
+                            Table Status:<br>
+                            <input type="text" name="tablestatus" placeholder="enter status"><br>
+                            <br>
+                            <div class="modal-footer text-center">
+                                <button class="btn btn-default center">Confirm edit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
         </div>
 
-        <form class="survey" id="clone">
-            <label for="survey" , class="tableIDe" id="table1">Table 1</label>
-            <select name="rank" class="rank" id="rank1">
-                <option value="unoccupied" selected="selected">Unoccupied</option>
-                <option value="reserved">Occupied</option>
-                <option value="reserved">Reserved</option>
-            </select>
-            <input name="customer_info" class="customer_info" id="cus1" type="text" placeholder="Customer info" />
-            <button type="button" id="button1">Change status</button>
-        </form>
+        <!--/Edit Menu-->
+        <table id="cafe-menu">
+            <thead>
+                <tr>
+                    <th>Table Number</th>
+                    <th>  Description</th>
+                    <th>  Status</th>
+                </tr>
+            </thead>
+            <tbody id="cafe-table-list"></tbody>
+        </table>
 
-        <form class="survey">
-            <label for="survey" , class="tableIDe" id="table2">Table 2</label>
-            <select name="rank" class="rank" id="rank2">
-                <option value="unoccupied" selected="selected">Unoccupied</option>
-                <option value="reserved">Occupied</option>
-                <option value="reserved">Reserved</option>
-            </select>
-            <input name="customer_info" id="cus2" class="customer_info" type="text" placeholder="Customer info" />
-            <button type="button" id="button2">Change status</button>
-        </form>
-
-        <form class="survey">
-            <label for="survey" , class="tableIDe" id="table3">Table 3</label>
-            <select name="rank" class="rank" id="rank3">
-                <option value="unoccupied" selected="selected">Unoccupied</option>
-                <option value="reserved">Occupied</option>
-                <option value="reserved">Reserved</option>
-            </select>
-            <input name="customer_info" id="cus3" class="customer_info" type="text" placeholder="Customer info" />
-            <button type="button" id="button3">Change status</button>
-        </form>
-
-        <form class="survey">
-            <label for="survey" , class="tableIDe" id="table4">Table 4</label>
-            <select name="rank" class="rank" id="rank4">
-                <option value="unoccupied" selected="selected">Unoccupied</option>
-                <option value="reserved">Occupied</option>
-                <option value="reserved">Reserved</option>
-            </select>
-            <input name="customer_info" class="customer_info" id="cus4" type="text" placeholder="Customer info" />
-            <button type="button" id="button4">Change status</button>
-        </form>
-
-        <form class="survey">
-            <label for="survey" , class="tableIDe" id="table5">Table 5</label>
-            <select name="rank" class="rank" id="rank5">
-                <option value="unoccupied" selected="selected">Unoccupied</option>
-                <option value="reserved">Occupied</option>
-                <option value="reserved">Reserved</option>
-            </select>
-            <input name="customer_info" class="customer_info" id="cus5" type="text" placeholder="Customer info" />
-            <button type="button" id="button5">Change status</button>
-        </form>
     </div>
+    <!--SCRIPTS-->
+    <!-- JQuery -->
+    <script src="framework/js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script src="framework/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="framework/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script src="framework/js/mdb.min.js"></script>
+    <!-- Menu JavaScript -->
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCyZvwuBhfvR4XUNHGccdb-kGiRwqsT37k",
+            authDomain: "cafe-pos-30bd9.firebaseapp.com",
+            databaseURL: "https://cafe-pos-30bd9.firebaseio.com",
+            projectId: "cafe-pos-30bd9",
+            storageBucket: "cafe-pos-30bd9.appspot.com",
+            messagingSenderId: "553867278387",
+            appId: "1:553867278387:web:e2b1b70109c686fb8fcb46",
+            measurementId: "G-7JD8TBC4YR"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const db = firebase.firestore();
+    </script>
+    <script src="js/tablechange.js"></script>
 
-
-    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-database.js"></script>
-    <script src="js/init.js"></script>
-    <!---  <script src="js/app2.js"></script> -->
-        <script src="js/tablejs.js"></script>
-
-    </body>
+</body>
 
     </html>
