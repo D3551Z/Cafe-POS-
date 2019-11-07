@@ -21,7 +21,6 @@ db.collection('Menu').orderBy("food_price").onSnapshot(snapshot =>{
             
 });
 
-
 // create element renderMenu
 function renderMenu(doc){
 let tr = document.createElement('tr');

@@ -86,18 +86,21 @@
     <div class="modal-content">
       <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">Edit Menu Details</h4>
-        <button type="button" class="close">
+        <button type="button" class= "close" id="close">
             <span>&times;</span>
           </button>
       </div>
       <div class="modal-body">
         <form class="md-form" id="edit-cafe-pos">
-          Menu Title:<br>
-          <input type="text" name="menutitle" placeholder="enter title"><br>
-          Menu Description:<br>
-          <input type="text" name="menudesc" placeholder="enter description"><br>
-          Menu Price:<br>
-            <input type="text" name="menuprice" placeholder="enter price"><br>
+          <h5 class="modal-title w-100 font-weight-bold">Menu Title:</h5>
+          <a id="datab_title"></a><br>
+          <input type="text" name="menutitle" placeholder="enter title"><br><br>
+          <h5 class="modal-title w-100 font-weight-bold">Menu Description:</h5>
+          <a id="datab_desc"></a><br>
+          <input type="text" name="menudesc" placeholder="enter description"><br><br>
+          <h5 class="modal-title w-100 font-weight-bold">Menu Price:</h5>
+          <a id="datab_price"></a><br>
+            <input type="text" name="menuprice" placeholder="enter price"><br><br>
             <br>
             <div class="modal-footer text-center">
             <button class="btn btn-default center">Confirm edit</button>

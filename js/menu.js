@@ -2,7 +2,10 @@ const cafemenulist = document.querySelector('#cafe-menu-list');
 const form = document.querySelector('#add-cafe-pos');
 var Modal_Edit=document.getElementById('editmodalform');
 var Edit_Form = document.querySelector('#edit-cafe-pos');
-var btnclose = document.getElementsByClassName('close');
+var btnclose = document.getElementById('close');
+var Modal_title = document.getElementById('datab_title');
+var Modal_desc = document.getElementById('datab_desc');
+var Modal_price = document.getElementById('datab_price');
 var selectedID;
 
 //get real time database, if changes made, refresh automatically
@@ -57,9 +60,12 @@ btnEdit.addEventListener('click', (e) => {
      console.log(selectedID);
     Modal_Edit.style.display="block";
     console.log("form has been summoned");
+    Modal_title.textContent = doc.data().food_name;
+    Modal_desc.textContent = doc.data().food_desc;
+    Modal_price.textContent = doc.data().food_price;
 
     btnclose.onclick = function(event) {
-        if (event.target == Modal_Edit) {
+        if (event.target == btnclose) {
             Modal_Edit.style.display = "none";
             console.log("ive close it");  
         }
