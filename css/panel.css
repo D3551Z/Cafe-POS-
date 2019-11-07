@@ -1,0 +1,15 @@
+.card-deck{
+  height:500px;
+  width:80%;
+  margin: auto;
+  margin-top: 50px;
+  }
+
+div.card-body{
+  text-align: center;
+}
+
+div.card-link{
+position: absolute;
+bottom: 10px;
+}
