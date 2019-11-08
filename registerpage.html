@@ -1,77 +1,72 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Cafe POS</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-  <!-- Bootstrap core CSS -->
-  <link href="framework/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="framework/css/mdb.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
-  <link href="css/loginregister.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Cafe POS</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="framework/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/loginregister.css" rel="stylesheet">
 </head>
 
 <body>
-<!-- Default form register -->
-<form id= "f" class="text-center border border-light p-5" action="#!">
+    <!-- Default form register -->
+    <form id="f" class="text-center border border-light p-5" action="#!" onsubmit="return registerFunction()" >
 
-    <p class="h4 mb-4">Sign Up</p>
+        <p class="h4 mb-4">Sign Up</p>
 
-    <div class="form-row mb-4">
-        <div class="col">
-            <!-- First name -->
-            <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+        <div class="form-row mb-4">
+            <div class="col">
+                <!-- name -->
+                <input type="text" id="name" class="form-control" placeholder="Name">
+            </div>
+          
         </div>
-        <div class="col">
-            <!-- Last name -->
-            <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+
+        <!-- E-mail -->
+        <input type="email" id="regEmail" class="form-control mb-4" placeholder="E-mail">
+
+        <!-- Password -->
+        <input type="password" id="regPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+            At least 8 characters and 1 digit
+        </small>
+
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="admin" value="true" checked>
+            <label class="custom-control-label" for="admin">Admin</label>
         </div>
-    </div>
 
-    <!-- E-mail -->
-    <input type="email" id="regEmail" class="form-control mb-4" placeholder="E-mail">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="nonadmin" value="false">
+            <label class="custom-control-label" for="nonadmin">Staff</label>
+        </div>
+        <!-- Sign up button -->
+        <button class="btn btn-info my-4 btn-block" id="btnSignUp" type="submit">Sign Up</button>
 
-    <!-- Password -->
-    <input type="password" id="regPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-        At least 8 characters and 1 digit
-    </small>
-
-    <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="admin" value="true" checked>
-        <label class="custom-control-label" for="admin">Admin</label>
-    </div>
-    
-    <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="nonadmin" value="false">
-        <label class="custom-control-label" for="nonadmin">Staff</label>
-    </div>
-    <!-- Sign up button -->
-    <button class="btn btn-info my-4 btn-block" type="submit">Sign Up</button>
-
-</form>
-<!-- Default form register -->
-
-
+    </form>
+    <!-- Default form register -->
     <!-- SCRIPTS -->
     <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="framework/js/jquery-3.4.1.min.js"></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="framework/js/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="framework/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="framework/js/mdb.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-database.js"></script>
     <script src="js/init.js"></script>
-    <script src="js/login.js"></script>
-
+    <script src="js/register.js"></script>
+    </body>
 </html>
