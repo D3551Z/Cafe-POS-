@@ -1,73 +1,73 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Cafe POS</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-  <!-- Bootstrap core CSS -->
-  <link href="framework/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="framework/css/mdb.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
-  <link href="css/loginregister.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Cafe POS</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="framework/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/loginregister.css" rel="stylesheet">
 </head>
 
 <body>
-<!-- Default form login -->
-<form class="text-center border border-light p-5" id = "f" action="#!">
+    <!-- Default form login -->
+    <form class="text-center border border-light p-5" id="f" action="#!">
 
-    <p class="h4 mb-4">Sign in</p>
+        <p class="h4 mb-4">Sign in</p>
 
-    <!-- Email -->
-    <input type="email" id="logEmail" class="form-control mb-4" placeholder="E-mail">
+        <!-- Email -->
+        <input type="email" id="logEmail" class="form-control mb-4" placeholder="E-mail">
 
-    <!-- Password -->
-    <input type="password" id="logPassword" class="form-control mb-4" placeholder="Password">
+        <!-- Password -->
+        <input type="password" id="logPassword" class="form-control mb-4" placeholder="Password">
 
-    <div class="d-flex justify-content-around">
-        <div>
-            <!-- Remember me -->
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+        <div class="d-flex justify-content-around">
+            <div>
+                <!-- Remember me -->
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                    <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+                </div>
+            </div>
+            <div>
+                <!-- Forgot password -->
+                <a href="">Forgot password?</a>
             </div>
         </div>
-        <div>
-            <!-- Forgot password -->
-            <a href="">Forgot password?</a>
-        </div>
-    </div>
 
-    <!-- Sign in button -->
-    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+        <!-- Sign in button -->
+        <button class="btn btn-info btn-block my-4" id="btnLogin" type="submit">Sign in</button>
 
-    <!-- Register -->
-    <p>Not a member?
-        <a href="registerpage.html">Register</a>
-    </p>
-</form>
-<!-- Default form login -->
-
-<!-- SCRIPTS -->
-<!-- JQuery -->
-<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="js/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="js/mdb.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-database.js"></script>
-<script src="js/init.js"></script>
-<script src="js/login.js"></script>
-<script src="js/app2.js"></script>
+        <!-- Register -->
+        <p>
+            Not a member?
+            <a href="registerpage.html">Register</a>
+        </p>
+    </form>
+    <!-- Default form login -->
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="framework/js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="framework/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="framework/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="framework/js/mdb.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-functions.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>
