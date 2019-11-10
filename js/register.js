@@ -18,17 +18,13 @@ function registerFunction() {
     var mail = document.forms["f"]["regEmail"].value;
     var username = document.forms["f"]["name"].value;
     var password = document.forms["f"]["regPassword"].value;
-    if (username == "" || username == "" || regEmail == "" ) {
+    if (username == "" || mail == "" || regEmail == "" ) {
         alert("You forgot to fill in a field.");
         return false;
     } else if (password.length < 6) {
     alert("Password must be at least 6 characters long.");
     return false;
 }  
-
-
-    // Register and connect it to Firestore
-    //  btnSignUp.addEventListener('click', e => {
     const email = regEmail.value;
     const pass = regPassword.value;
     const name = regName.value;
@@ -38,9 +34,9 @@ function registerFunction() {
     } else {
         adminval = nonadmin.value;
     }
-
-    const promise = auth.createUserWithEmailAndPassword(email, pass);
-    promise.catch(e => alert(e.message));
+    //Create user in Firebase Auth and in the users collection.
+    auth.createUserWithEmailAndPassword(email, pass);
+    auth.createUserWithEmailAndPassword(email, pass).catch(e => alert(e.message));
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             db.collection('users').doc(user.uid).set({
@@ -48,7 +44,7 @@ function registerFunction() {
                 uid: user.uid,
                 admin: adminval,
                 name: name
-
+//If user is admin or not, send to different pages.
             }).then(() => {
                 if (user && admin.checked) {
                     window.location.href = "adminpanel.html";
