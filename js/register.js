@@ -18,13 +18,13 @@ function registerFunction() {
     var mail = document.forms["f"]["regEmail"].value;
     var username = document.forms["f"]["name"].value;
     var password = document.forms["f"]["regPassword"].value;
-    if (username == "" || mail == "" || regEmail == "" ) {
+    if (username == "" || mail == "" || regEmail == "") {
         alert("You forgot to fill in a field.");
         return false;
     } else if (password.length < 6) {
-    alert("Password must be at least 6 characters long.");
-    return false;
-}  
+        alert("Password must be at least 6 characters long.");
+        return false;
+    }
     const email = regEmail.value;
     const pass = regPassword.value;
     const name = regName.value;
@@ -36,7 +36,8 @@ function registerFunction() {
     }
     //Create user in Firebase Auth and in the users collection.
     auth.createUserWithEmailAndPassword(email, pass);
-    auth.createUserWithEmailAndPassword(email, pass).catch(e => alert(e.message));
+
+    // auth.createUserWithEmailAndPassword(email, pass).catch(e => alert(e.message));
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             db.collection('users').doc(user.uid).set({
@@ -44,8 +45,9 @@ function registerFunction() {
                 uid: user.uid,
                 admin: adminval,
                 name: name
-//If user is admin or not, send to different pages.
+                //If user is admin or not, send to different pages.
             }).then(() => {
+                delete user;
                 if (user && admin.checked) {
                     window.location.href = "adminpanel.html";
                 } else if (user && nonadmin.checked) {
@@ -53,12 +55,11 @@ function registerFunction() {
 
                 }
             });
-        } else {
+} else {
             console.log("No user!");
         }
 
     });
 
 }
-
 
