@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Cafe POS</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" , shrink-to-fit=no />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Table Modifying Page</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Firebase-->
@@ -17,7 +17,7 @@
     <!-- Material Design Bootstrap -->
     <link href="framework/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="css/panel.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <script src="js/login.js"></script>
 </head>
 
@@ -61,31 +61,22 @@
         </div>
     </nav>
     <!--/.Navbar-->
-    <!-- Main content -->
-    <div class="card-deck">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Manage foods and beverages menu</h5>
-                <p class="card-text">Add, edit and remove foods and beverages menu.</p>
-                <div class="card-link"><a href="#!">Enter</a></div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Manage tables</h5>
-                <p class="card-text">Edit the table status</p>
-                <div class="card-link"><a href="#!">Enter</a></div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Manage transaction and report</h5>
-                <p class="card-text">Print & Save Daily Report</p>
-                <div class="card-link"><a href="#!">Enter</a></div>
-            </div>
-        </div>
+    <h1>Transaction Log</h1>
+    <div class="content">
+        <table id="cafe-transaction">
+            <thead>
+                <tr>
+                    <th>Amount</th>
+                    <th>Items ordered</th>
+                    <th>Date</th>
+                    <th>Server</th>
+
+                </tr>
+            </thead>
+            <tbody id="cafe-transaction-list"></tbody>
+        </table>
+
     </div>
-    <!-- Main content -->
     <!--SCRIPTS-->
     <!-- JQuery -->
     <script src="framework/js/jquery-3.4.1.min.js"></script>
@@ -95,7 +86,25 @@
     <script src="framework/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script src="framework/js/mdb.min.js"></script>
-    <!-- admin panel JavaScript -->
-    <!--/SCRIPTS-->
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCyZvwuBhfvR4XUNHGccdb-kGiRwqsT37k",
+            authDomain: "cafe-pos-30bd9.firebaseapp.com",
+            databaseURL: "https://cafe-pos-30bd9.firebaseio.com",
+            projectId: "cafe-pos-30bd9",
+            storageBucket: "cafe-pos-30bd9.appspot.com",
+            messagingSenderId: "553867278387",
+            appId: "1:553867278387:web:e2b1b70109c686fb8fcb46",
+            measurementId: "G-7JD8TBC4YR"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const db = firebase.firestore();
+    </script>
+    <script src="js/transaction.js"></script>
+
 </body>
-</html>
+
+    </html>

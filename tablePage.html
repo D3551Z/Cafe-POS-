@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0", shrink-to-fit=no/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" , shrink-to-fit=no />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Table Modifying Page</title>
     <!-- Font Awesome -->
@@ -18,6 +18,7 @@
     <link href="framework/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
+    <script src="js/login.js"></script>
 </head>
 
 <body>
@@ -41,29 +42,24 @@
                     <a class="nav-link" href="#">Orders</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Table Status</a>
+                    <a class="nav-link" href="tablePage.html">Table Status</a>
                 </li>
-                <!-- Dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-                    <div class="dropdown-menu dropdown-menu dropdown-default">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="adminCheck()">Admin page</a>
                 </li>
+
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
                 <li class="nav-item">
-                    <a class="nav-link">
-                        <i class="fas fa-user"></i> Profile
-                    </a>
+                    <button class="btn btn-light" onclick="userInfo()" type="submit">User Info</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-light" onclick="userLogout()" type="submit">Log Out</button>
 
                 </li>
             </ul>
         </div>
     </nav>
-    <!--/.Navbar-->
     <h1>Cafe Pos</h1>
     <div class="content">
         <form id="add-cafe-pos">
@@ -123,7 +119,6 @@
     <script src="framework/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script src="framework/js/mdb.min.js"></script>
-    <!-- Menu JavaScript -->
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
