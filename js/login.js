@@ -16,6 +16,8 @@ function loginUser() {
                 if (doc.data().admin == "true") {
                     // Store
                     sessionStorage.setItem("email", email);
+                    sessionStorage.setItem("admin", doc.data().admin);
+
                     window.location.href = "adminpanel.html";
                 } else {
                     sessionStorage.setItem("email", email);
@@ -36,9 +38,15 @@ function userInfo() {
     }
 }
 
+function adminCheck() {
+    if (sessionStorage.getItem("admin") == "true") {
+        window.location.href = "adminpanel.html";
+    } else {
+        alert("You're not an admin. ");
+    }
+}
 
 function userLogout() {
-    firebase.auth().signOut();
     alert(" You have logged out.");
     sessionStorage.clear("email");
     window.location.href = "loginpage.html";
