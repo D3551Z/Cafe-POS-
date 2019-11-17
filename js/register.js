@@ -31,8 +31,10 @@ function registerFunction() {
     const auth = firebase.auth();
     if (admin.checked) {
         adminval = admin.value;
+        sessionStorage.setItem("admin", "true");
     } else {
         adminval = nonadmin.value;
+        sessionStorage.setItem("admin", "false");
     }
     //Create user in Firebase Auth and in the users collection.
     auth.createUserWithEmailAndPassword(email, pass);
