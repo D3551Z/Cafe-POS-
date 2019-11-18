@@ -49,6 +49,8 @@ function registerFunction() {
                 name: name
                 //If user is admin or not, send to different pages.
             }).then(() => {
+                sessionStorage.setItem("email", email);
+                sessionStorage.setItem("name", name);
                 delete user;
                 if (user && admin.checked) {
                     window.location.href = "adminpanel.html";
