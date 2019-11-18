@@ -2,7 +2,10 @@ const cafetablelist = document.querySelector('#cafe-table-list');
 const form = document.querySelector('#add-cafe-pos');
 var Modal_Edit = document.getElementById('editmodalform');
 var Edit_Form = document.querySelector('#edit-cafe-pos');
-var btnclose = document.getElementsByClassName('close');
+var btnclose = document.getElementById('close');
+var Modal_id = document.getElementById('datab_id');
+var Modal_desc = document.getElementById('datab_desc');
+var Modal_status = document.getElementById('datab_status');
 var selectedID;
 
 //get real time database, if changes made, refresh automatically
@@ -55,9 +58,12 @@ tr.appendChild(tabledesc);
         console.log(selectedID);
         Modal_Edit.style.display = "block";
         console.log("form has been summoned");
+		    Modal_id.textContent = doc.data().id;
+			Modal_desc.textContent = doc.data().customer_info;
+			Modal_status.textContent = doc.data().status;
 
         btnclose.onclick = function (event) {
-            if (event.target == Modal_Edit) {
+            if (event.target == btnclose) {
                 Modal_Edit.style.display = "none";
                 console.log("ive close it");
             }
@@ -83,7 +89,7 @@ tr.appendChild(tabledesc);
     })
 
 }
-/* Multiple
+ /*//Multiple
 db.collection('Table').get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
         renderDatabase(doc);
@@ -111,9 +117,9 @@ Edit_Form.addEventListener('submit', (e) => {
 
     db.collection('Table').doc(selectedID).update({
 
-        food_name: Edit_Form.tablenumber.value,
-        food_desc: Edit_Form.tabledesc.value,
-        food_price: Edit_Form.tablestatus.value
+        id: Edit_Form.tablenumber.value,
+        customer_info: Edit_Form.tabledesc.value,
+        status: Edit_Form.tablestatus.value
     })
 
 });
