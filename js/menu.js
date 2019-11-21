@@ -3,25 +3,32 @@ const form = document.querySelector('#add-cafe-pos');
 var Modal_Edit=document.getElementById('editmodalform');
 var Edit_Form = document.querySelector('#edit-cafe-pos');
 var btnclose = document.getElementById('close');
+var Editbtn = document.getElementById('btnedit');
 var Modal_title = document.getElementById('datab_title');
 var Modal_desc = document.getElementById('datab_desc');
 var Modal_price = document.getElementById('datab_price');
 var selectedID;
 
 //get real time database, if changes made, refresh automatically
-db.collection('Menu').orderBy("food_price").onSnapshot(snapshot =>{
+db.collection('Menu').orderBy("food_name").onSnapshot(snapshot =>{
     let changes=snapshot.docChanges();
     changes.forEach(change=>{
         if(change.type=='added'){
             renderMenu(change.doc);
+            console.log("menu added")
         }else if (change.type=='removed'){
             let tr = cafemenulist.querySelector('[data-id=' + change.doc.id +']');
             cafemenulist.removeChild(tr);
+            console.log("menu removed")
+        }else{
+            let tr = cafemenulist.querySelector('[data-id=' + change.doc.id +']');
+            cafemenulist.removeChild(tr);
+            renderMenu(change.doc);
+            console.log("menu updated")
         }
     })
     //debugging purpose
     console.log("changes made")
-            
 });
 
 
@@ -67,16 +74,23 @@ btnEdit.addEventListener('click', (e) => {
     btnclose.onclick = function(event) {
         if (event.target == btnclose) {
             Modal_Edit.style.display = "none";
-            console.log("ive close it");  
+            console.log("I've close it");  
         }
      }
+    window.onclick = function(event) {
+    if (event.target == Modal_Edit) {
+        Modal_Edit.style.display = "none";
+        console.log("I've not close it");  
+    }
+    }
     
-     window.onclick = function(event) {
-        if (event.target == Modal_Edit) {
-            Modal_Edit.style.display = "none";
-            console.log("ive nto close it");  
-        }
-      }
+    Editbtn.onclick = function(event){
+    if (event.target == Editbtn){
+        Modal_Edit.style.display = "none";
+        console.log("I've edited it");
+    }
+    }
+      
 })
 
 
@@ -92,13 +106,6 @@ btnRemove.addEventListener('click', (e) => {
 
 }
 
-/*db.collection('Menu').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
-        renderMenu(doc);
-        console.log(doc.data())
-    })
-})*/
-
 //saving data
 form.addEventListener('submit',(e) =>{
     e.preventDefault();
@@ -113,15 +120,19 @@ form.addEventListener('submit',(e) =>{
 Edit_Form.addEventListener('submit', (e) => {
     e.preventDefault();
     //debugging purpose
-    console.log("you edit the item!");
+    console.log("you've edited the item!");
     //store field values to a new empty string.
-    
     db.collection('Menu').doc(selectedID).update({
-       
         food_name: Edit_Form.menutitle.value,
         food_desc: Edit_Form.menudesc.value,
         food_price: Edit_Form.menuprice.value
+        
     })
-   
+
+    
+    alert("You had sucessfully edited the item from system! Your table will now be updated!");
+    // location.reload();
 });
+
+
 

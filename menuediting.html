@@ -70,12 +70,14 @@
 <!--    Main content    -->
 <h1>Cafe Pos</h1>
 
-<div class="content">
-  <form id = "add-cafe-pos">
-    <input type="text" onfocus="this.value=''" name="menutitle" placeholder="Menu Title">
-    <input type="text" onfocus="this.value=''" name="menudesc" placeholder="Menu Description">
-    <input type="text" onfocus="this.value=''" name="menuprice" placeholder="Menu Price">
-    <button>Add Menu</button>
+<div  class="content">
+  <form class="text-center" id = "add-cafe-pos">
+      <div class="d-flex justify-content-start">
+    <input class="form-control" type="text" onfocus="this.value=''" name="menutitle" placeholder="Menu Title">
+    <input class="form-control" type="text" onfocus="this.value=''" name="menudesc" placeholder="Menu Description">
+    <input class="form-control" type="text" onfocus="this.value=''" name="menuprice" placeholder="Menu Price">
+    <button class="btn btn-default btn-sm btn-block" >Add Menu</button>
+    </div>
   </form>
   <!--Edit Menu-->
   <div id="editmodalform" class="modal">
@@ -100,7 +102,7 @@
             <input type="text" name="menuprice" placeholder="enter price"><br><br>
             <br>
             <div class="modal-footer text-center">
-            <button class="btn btn-default center">Confirm edit</button>
+            <button id="btnedit" class="btn btn-default center">Confirm edit</button>
           </div>
         </form>
       </div>
@@ -110,12 +112,12 @@
 </div>
 
  <!--/Edit Menu-->
-  <table id="cafe-menu">
-    <thead>
+  <table class="table" class="text-center" id="cafe-menu">
+    <thead >
       <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Price (RM)</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price (RM)</th>
       </tr>
   </thead>
   <tbody id="cafe-menu-list"></tbody>

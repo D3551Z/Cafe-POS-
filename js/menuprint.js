@@ -47,13 +47,6 @@ cafemenulist.appendChild(tr);
 
 }
 
-db.collection('Menu').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
-        renderMenu(doc);
-        console.log(doc.data())
-    })
-})
-
 //saving data
 form.addEventListener('submit',(e) =>{
     e.preventDefault();
