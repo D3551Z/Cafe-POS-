@@ -121,5 +121,7 @@ Edit_Form.addEventListener('submit', (e) => {
         customer_info: Edit_Form.tabledesc.value,
         status: Edit_Form.tablestatus.value
     })
-
-});
+    setTimeout(function () {
+        // Do something after 5 seconds
+        location.reload();//reload page
+    }, 3000);});
