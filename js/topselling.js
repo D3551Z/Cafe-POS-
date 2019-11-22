@@ -34,7 +34,6 @@ function GenerateChart(){
             
             options: {
                 responsive: true,
-                legend: false
             }
         });
     }
