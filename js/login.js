@@ -22,6 +22,8 @@ function loginUser() {
                 } else {
                     sessionStorage.setItem("email", email);
                     window.location.href = "staffpanel.html";
+                    sessionStorage.setItem("admin", doc.data().admin);
+
                 }
             });
 

@@ -55,7 +55,7 @@ function registerFunction() {
                 if (user && admin.checked) {
                     window.location.href = "adminpanel.html";
                 } else if (user && nonadmin.checked) {
-                    window.location.href = "tablePage.html";
+                    window.location.href = "staffpanel.html";
 
                 }
             });
