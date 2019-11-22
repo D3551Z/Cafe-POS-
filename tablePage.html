@@ -63,11 +63,13 @@
     </nav>
     <h1>Cafe Pos</h1>
     <div class="content">
-        <form id="add-cafe-pos">
-            <input type="text" onfocus="this.value=''" name="tablenumber" placeholder="Table ">
-            <input type="text" onfocus="this.value=''" name="tabledesc" placeholder="Table Description">
-            <input type="text" onfocus="this.value=''" name="tablestatus" placeholder="Table Status">
-            <button>Add Table</button>
+        <form class="text-center" id="add-cafe-pos">
+            <div class="d-flex justify-content-start">
+            <input class="form-control" type="text" onfocus="this.value=''" name="tablenumber" placeholder="Table ">
+            <input class="form-control" type="text" onfocus="this.value=''" name="tabledesc" placeholder="Table Description">
+            <input class="form-control" type="text" onfocus="this.value=''" name="tablestatus" placeholder="Table Status">
+            <button class="btn btn-default btn-sm btn-block">Add Table</button>
+        </div>
         </form>
         <!--Edit Menu-->
         <div id="editmodalform" class="modal">
@@ -102,12 +104,12 @@
         </div>
 
         <!--/Edit Menu-->
-        <table id="cafe-menu">
+        <table class="table" class="text-center" id="cafe-menu">
             <thead>
                 <tr>
-                    <th>Table Number</th>
-                    <th>  Description</th>
-                    <th>  Status</th>
+                    <th scope="col">Table Number</th>
+                    <th scope="col">  Description</th>
+                    <th scope="col">  Status</th>
                 </tr>
             </thead>
             <tbody id="cafe-table-list"></tbody>
